@@ -20,9 +20,14 @@ public class largestele {
 //        int ans = max_num(arr);
 //        System.out.println(ans);
 
-        String scondLast = second_last_max_num(arr);
-        System.out.println(scondLast);
+//        String scondLast = second_last_max_num(arr);
+//        System.out.println(scondLast);
 
+        int[] revans = reverse(arr);
+
+        for (int i =0 ;i< revans.length;i++){
+            System.out.println(revans[i]);
+        }
 
     }
 
@@ -43,6 +48,7 @@ public class largestele {
         int min = Integer.MAX_VALUE;
         int smin = Integer.MAX_VALUE;
         for (int i =0 ; i< arr.length; i++){
+//            2,5,1,9,7
             if (lar< arr[i]){
                 slar = lar;
                 lar = arr[i];
@@ -51,7 +57,7 @@ public class largestele {
                 slar = arr[i];
             }
 
-//for minum values
+            //for minum values
             if (min> arr[i]){
                 smin = min;
                 min = arr[i];
@@ -65,9 +71,12 @@ public class largestele {
 
 
     static int[] reverse(int[] arr){
-        int i = 1 ;
-         while(i <(arr.length/2)){
-
+        int i = 0;
+         while(i < (arr.length/2)){
+            int temp = arr[arr.length-i-1] ;
+            arr[arr.length-i-1] = arr[i];
+            arr[i] = temp;
+            i++;
          }
 
         return arr;
