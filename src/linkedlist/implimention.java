@@ -94,6 +94,25 @@ public class implimention {
                 return temp.data;
             }
         }
+
+        void inserinto(int index,int data){
+            if (index<0 || index>=Size){
+                System.out.println("Invalid Argument");
+                return;
+            }
+            if (index == 0){
+                addFirst(data);
+            }else if (index == Size-1){
+                addLast(data);
+            }else {
+                Node newNode = new Node(data);
+                Node temp = head;
+
+                for (int i =0 ; i < index; i++){
+
+                }
+            }
+        }
     }
     public static void main(String[] args) {
         Linkedlist l = new Linkedlist();
