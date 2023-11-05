@@ -2,7 +2,7 @@ package Matrix;
 
 public class exitPoint {
     public static void main(String[] args) {
-        int[][] mat = {{0,0,0,1},{1,1,0,0},{0,1,0,0},{0,1,1,1}};
+        int[][] mat = {{0,0,1,0},{1,0,0,1},{0,0,0,1},{1,0,1,0}};
         int maxr = mat.length -1;
         int maxc = mat[0].length-1;
         int i = 0;
