@@ -2,7 +2,7 @@ package Array;
 
 public class buyndsell {
     public static void main(String[] args) {
-        int[] arr = {7,1,5,3,6};
+        int[] arr = {7,1,5,9,6};
         int max = Integer.MIN_VALUE ;
 
         for (int i =0; i < arr.length-1;i++){
