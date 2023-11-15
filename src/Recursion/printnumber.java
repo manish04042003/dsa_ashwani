@@ -10,20 +10,25 @@ public class printnumber {
 
 //        System.out.println(factorial(n));
 
-        System.out.println(power(10,8));
+        System.out.println(myPow(2.000,-2));
 
     }
 
-    private static int power(int x , int n){
+    public static double myPow(double x, int n) {
         if (n==0){
             return 1;
         }
-        int xpnb2 = power(x,n/2);
-        int xpn = xpnb2*xpnb2;
+//        double xpnb2 = myPow(x,n/2);
+        double xpn = myPow(x,n-1);
 
+        if(n<0){
+            xpn = 1/xpn;
+        }
         if (n%2!=0){
             xpn=xpn*x;
         }
+
+        System.out.println(xpn);
 
         return xpn;
     }
