@@ -1,5 +1,6 @@
 package Recursion;
 
+import java.sql.Array;
 import java.util.ArrayList;
 
 public class ArraylistRecursion {
@@ -12,8 +13,55 @@ public class ArraylistRecursion {
 //        System.out.println(ans);
 
 
-        ArrayList<String> ans = possibleWords(new int[]{2, 3, 4}, 3);
+//        ArrayList<String> ans = possibleWords(new int[]{2, 3, 4}, 3);
+//        System.out.println(ans);
+
+//        ArrayList<String> ans = getStairPath(5);
+//        System.out.println(ans);
+
+        int ans = climbStair(84);
         System.out.println(ans);
+
+    }
+
+    private static int climbStair(int n) {
+
+        if(n==1){
+            return 1;
+        } else if (n==2) {
+            return 2;
+        }
+        int First = climbStair(n-1);
+        int second = climbStair(n-2);
+        return First + second ;
+    }
+
+    private static ArrayList<String> getStairPath(int n) {
+
+        if(n==1){
+            ArrayList<String> forone = new ArrayList<>();
+            forone.add("1");
+            return forone;
+        } else if (n==2) {
+            ArrayList<String> fortwo = new ArrayList<>();
+            fortwo.add("2");
+            fortwo.add("11");
+
+            return fortwo;
+        }
+         ArrayList<String> First = getStairPath(n-1);
+        ArrayList<String> second = getStairPath(n-2);
+
+        ArrayList<String> ans = new ArrayList<>();
+        for (String s : First){
+             ans.add("1"+s);
+        }
+        for (String s : second){
+            ans.add("2"+s);
+        }
+
+        return ans ;
+
 
     }
 
