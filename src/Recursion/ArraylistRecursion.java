@@ -19,8 +19,54 @@ public class ArraylistRecursion {
 //        ArrayList<String> ans = getStairPath(5);
 //        System.out.println(ans);
 
-        int ans = climbStair(84);
-        System.out.println(ans);
+//        int ans = climbStair(84);
+//        System.out.println(ans);
+
+
+//        ArrayList<String> ans = getMazepath(1,1,2,2);
+//        System.out.println(ans);
+
+
+
+    }
+
+    private static ArrayList<String> getMazepath(int sr, int sc, int dc, int dr) {
+
+        if (sr>dr || sc>dc){
+            ArrayList<String> forr = new ArrayList<>();
+            return forr;
+        }
+        if (sr==dr && sc==dc){
+            ArrayList<String> endcase = new ArrayList<>();
+            endcase.add("");
+            return endcase;
+        }
+
+//        if (sr==dr-1 && sc==dc){
+//            ArrayList<String> endcase = new ArrayList<>();
+//            endcase.add("v");
+//            return endcase;
+//        }
+//        if (sr==dr && sc==dc-1){
+//            ArrayList<String> endcase = new ArrayList<>();
+//            endcase.add("h");
+//            return endcase;
+//        }
+
+        ArrayList<String> forv = getMazepath(sr,sc+1,dc,dr);
+        ArrayList<String> forh = getMazepath(sr+1,sc,dc,dr);
+
+        ArrayList<String> ans = new ArrayList<>();
+
+        for (String s : forv){
+            ans.add("v"+s);
+        }
+        for (String s : forh){
+            ans.add("h"+s);
+        }
+
+        return ans;
+
 
     }
 
