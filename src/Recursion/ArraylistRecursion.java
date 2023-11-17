@@ -2,6 +2,7 @@ package Recursion;
 
 import java.sql.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ArraylistRecursion {
     public static void main(String[] args) {
@@ -27,6 +28,34 @@ public class ArraylistRecursion {
 //        System.out.println(ans);
 
 
+        int ans = NumberOfPath(3, 4);
+        System.out.println(ans);
+
+
+    }
+
+    public static HashMap<String,Integer> memo = new HashMap<>();
+
+    private static int NumberOfPath(int r, int c) {
+        if(r==1 && c==2){
+            return 1;
+        } else if (c==1&&r==2) {
+            return 1;
+        }
+        if (r==0 || c==0){
+            return 0;
+        }
+
+        if (memo.containsKey(""+r+c)){
+            return memo.get(""+r+c);
+        }
+
+
+        int ans = NumberOfPath(r-1,c) + NumberOfPath(r,c-1);
+        memo.put(""+r+c,ans);
+        System.out.println(""+r+c);
+
+        return ans;
 
     }
 
