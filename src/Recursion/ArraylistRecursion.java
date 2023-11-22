@@ -28,10 +28,45 @@ public class ArraylistRecursion {
 //        System.out.println(ans);
 
 
-        int ans = NumberOfPath(3, 4);
-        System.out.println(ans);
+//        int ans = NumberOfPath(3, 4);
+//        System.out.println(ans);
+
+//        ArrayList<String> ans =  getmazepathwithJumps(1,1,3,3);
+//        System.out.println(ans);
 
 
+
+    }
+
+    private static ArrayList<String> getmazepathwithJumps(int sr, int sc, int dr, int dc) {
+        ArrayList<String> ans = new ArrayList<>();
+
+        if (sr == dr && sc == dc){
+            ans.add("");
+            return ans;
+        }
+
+        for (int step =1 ; step<=dr-sr ;step++){
+            ArrayList<String> forr = getmazepathwithJumps(sr+step,sc,dr,dc);
+            for (String s : forr){
+                ans.add("v"+step+s);
+            }
+        }
+        for (int step =1 ; step<=dc-sc && step<=dr-sr ;step++){
+            ArrayList<String> ford = getmazepathwithJumps(sr+step,sc+step,dr,dc);
+            for (String s : ford){
+                ans.add("d"+step+s);
+            }
+        }
+        for (int step =1 ; step<=dc-sc ;step++){
+            ArrayList<String> forc = getmazepathwithJumps(sr,sc+step,dr,dc);
+            for (String s : forc){
+                ans.add("h"+step+s);
+            }
+        }
+
+
+        return ans;
     }
 
     public static HashMap<String,Integer> memo = new HashMap<>();
