@@ -2,7 +2,7 @@ package Recursion;
 
 public class TowerOfHonoi {
     public static void main(String[] args) {
-        int n = 3 ;
+        int n = 5 ;
         int a = 10;
         int b = 11;
         int c = 12;
@@ -22,7 +22,6 @@ public class TowerOfHonoi {
         if (n==1){
             return 1;
         }
-
 
         return s1 + s2 + 1  ;
     }

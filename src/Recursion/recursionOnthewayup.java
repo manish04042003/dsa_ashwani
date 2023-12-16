@@ -7,7 +7,54 @@ public class recursionOnthewayup {
 //        printStairPath(3,"");
 //        PrintMazePath(1,1,3,5,"");
 //        PrintMazePathWithJump(1,1,3,3,"");
-        PrintPermultation("abc","");
+//        PrintPermultation("abc","");
+//        PrintEncoding("233");
+//        margeString("manish","ish");
+        productofarray();
+    }
+
+    private static void productofarray() {
+        int[] nums = {2,34,5,2,0,3,0};
+        int p = 1 ;
+        int index = -1 ;
+        int flag = 0;
+        int[] ans = new int[nums.length];
+        for(int i =0 ; i < nums.length ; i ++){
+            if(nums[i]==0){
+                index = i ;
+                flag++;
+            }
+            p = p * nums[i];
+        }
+
+        if(flag == 1){
+            ans[index] = nums[index];
+        } else if (flag>1) {
+            return;
+        }
+        for(int i =0 ; i < nums.length ; i ++){
+            ans[i] = p/nums[i];
+        }
+
+    }
+
+    private static void margeString(String word1, String word2) {
+        StringBuilder ans = new StringBuilder();
+        int n1 =  word1.length();
+        int n2 = word2.length();
+        for (int i =0 ; i < n1 || i< n2;i++){
+               if (i< n1){
+                   ans.append(word1.charAt(i));
+               }
+               if (i< n2){
+                   ans.append(word2.charAt(i));
+               }
+        }
+
+        System.out.println(ans);
+    }
+
+    private static void PrintEncoding(String number) {
 
     }
 
